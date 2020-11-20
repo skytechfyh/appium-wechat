@@ -79,6 +79,9 @@ public class ContactPage extends AppBasePage {
 	@AndroidFindBy(id = "com.tencent.wework:id/blx")
 	private WebElement confirmDeleteBtn;
 
+	@AndroidFindBy(xpath = "//*[@class='android.widget.Toast']")
+	private WebElement toast;
+
 	/**
 	 * 添加成员
 	 * @param username	用户名
@@ -119,5 +122,9 @@ public class ContactPage extends AppBasePage {
 		click(confirmDeleteBtn);
 
 		return this;
+	}
+
+	public String getToast(){
+		return toast.getText();
 	}
 }

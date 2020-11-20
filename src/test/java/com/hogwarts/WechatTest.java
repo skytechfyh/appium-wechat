@@ -1,5 +1,6 @@
 package com.hogwarts;
 
+import com.hogwarts.page.ContactPage;
 import com.hogwarts.page.HomePage;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -10,6 +11,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author fyh
@@ -24,7 +27,8 @@ public class WechatTest{
 	@Order(1)
 	public void testAddMember(String userName, String userPhone){
 		HomePage homePage = new HomePage();
-		homePage.contact().addMember(userName, userPhone);
+		ContactPage contactPage = homePage.contact().addMember(userName, userPhone);
+		assertEquals(contactPage.getToast(), "添加成功");
 	}
 
 	@ParameterizedTest
