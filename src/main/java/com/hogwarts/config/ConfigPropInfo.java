@@ -22,6 +22,8 @@ public class ConfigPropInfo {
 
 	public static String APP_PLATFORM_NAME = null;
 
+	public static Long APP_ADB_EXEC_TIMEOUT = null;
+
 	static {
 		Properties pro = new Properties();
 		try {
@@ -38,6 +40,8 @@ public class ConfigPropInfo {
 			APP_PLATFORM_NAME = pro.getProperty("app.platformName");
 
 			APP_SERVER = pro.getProperty("app.server");
+
+			APP_ADB_EXEC_TIMEOUT = Long.parseLong(pro.getProperty("app.adb.exec.timeout"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -30,7 +30,7 @@ public class AppOptions {
 		setUdid(ConfigPropInfo.UDID);
 		setAppPackage(ConfigPropInfo.APP_PACKAGE);
 		setAppActivity(ConfigPropInfo.APP_ACTIVITY);
-
+		setAdbExecTimeout(ConfigPropInfo.APP_ADB_EXEC_TIMEOUT);
 		return desiredCapabilities;
 	}
 
@@ -104,5 +104,13 @@ public class AppOptions {
 	 */
 	public void setResetKeyboard(boolean resetKeyboard) {
 		desiredCapabilities.setCapability("resetKeyboard",resetKeyboard);
+	}
+
+	/**
+	 * 设置adb命令执行的超时时间
+	 * @param timeout	超时时间
+	 */
+	public void setAdbExecTimeout(Long timeout){
+		desiredCapabilities.setCapability("adbExecTimeout", timeout);
 	}
 }
